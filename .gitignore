@@ -1,0 +1,25 @@
+## System and generated files
+.idea
+.DS_Store
+.sass-cache
+.vscode
+
+## Directories
+# dist/
+log/
+node_modules/
+bower_components/
+
+## Files
+result.xml
+npm-debug.log
+package-lock.json
+
+## Extensions
+*.zip
+
+
+## version sprite build
+# src/assets/images/sprite.*.svg
+# src/assets/images/sprite.*.png
+

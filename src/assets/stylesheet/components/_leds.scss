@@ -1,0 +1,326 @@
+#leds-container {
+  display: flex;
+  padding: 2rem 0;
+}
+
+/** 
+* Os seguimentos do Led são montados baseados em segment-x para os na horizontal
+* e em segment-y para os na vertical. O segment-g tem uma leve diferença para
+* renderizar os dois lados do led
+*/
+
+.display-container {
+  position: relative;
+
+  &+.display-container {
+    margin-left: 1.25rem;
+  }
+
+  div.segment-x,
+  div.segment-y {
+    position: absolute;
+  }
+
+  span.segment-border {
+    display: block;
+    position: absolute;
+  }
+
+  &.display-size-12 {
+    width: 4.625rem;
+    height: 8.438rem;
+
+    &.success {
+      .segment-x {
+        border-top: 14px solid $color-success;
+
+      }
+
+      .segment-y {
+        border-left: 14px solid $color-success;
+      }
+
+      .segment-x.segment-g {
+        border-bottom: 9px solid $color-success;
+
+        .segment-border {
+          border-top: 9px solid $color-success;
+        }
+      }
+    }
+
+    &.error {
+      .segment-x {
+        border-top: 14px solid $color-error;
+      }
+
+      .segment-y {
+        border-left: 14px solid $color-error;
+      }
+
+      .segment-x.segment-g {
+        border-bottom: 9px solid $color-error;
+
+        .segment-border {
+          border-top: 9px solid $color-error;
+        }
+      }
+    }
+
+    .segment-x {
+      width: 4.25rem;
+      left: 2px;
+      border-top: 14px solid #000;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+
+      border-radius: 3.750rem;
+    }
+
+
+    .segment-x.segment-g {
+      width: 4.25rem;
+      left: 2.4px;
+      border-top: 0;
+      border-bottom: 9px solid #000;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+
+      border-radius: 0;
+
+      .segment-border {
+        top: 9px;
+        left: -9px;
+        right: -9px;
+        border-top: 9px solid #000;
+        border-left: 9px solid transparent;
+        border-right: 9px solid transparent;
+      }
+    }
+
+    .segment-y {
+      height: 3.963rem;
+      width: 0;
+      margin-top: -7px;
+      border-left: 14px solid #000;
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+
+      border-radius: 3.750rem;
+    }
+
+    .segment-a {
+      top: 0;
+    }
+
+    .segment-b {
+      top: 8px;
+      left: 58px;
+      transform: rotate(180deg);
+    }
+
+    .segment-c {
+      top: 73px;
+      left: 58px;
+
+      transform: rotate(180deg);
+    }
+
+    .segment-d {
+      top: 117px;
+      transform: rotate(180deg);
+    }
+
+    .segment-e {
+      top: 73px;
+      left: 0px;
+    }
+
+    .segment-f {
+      top: 8px;
+      left: 0px;
+    }
+
+    .segment-g {
+      top: 56px;
+    }
+
+  }
+
+  @media (max-width: 720px) {
+    &.display-size-12 {
+      width: 3.5rem;
+      height: 7.15rem;
+
+      &.success {
+        .segment-x {
+          border-top: 10px solid $color-success;
+        }
+
+        .segment-y {
+          border-left: 10px solid $color-success;
+        }
+
+        .segment-x.segment-g {
+          border-top: 0;
+          border-bottom: 7px solid $color-success;
+
+          .segment-border {
+            border-top: 7px solid $color-success;
+          }
+        }
+      }
+
+      &.error {
+        .segment-x {
+          border-top: 10px solid $color-error;
+        }
+
+        .segment-y {
+          border-left: 10px solid $color-error;
+        }
+
+        .segment-x.segment-g {
+          border-top: 0;
+          border-bottom: 7px solid $color-error;
+
+          .segment-border {
+            border-top: 7px solid $color-error;
+          }
+        }
+      }
+
+      .segment-x {
+        width: 3.625rem;
+        border-top: 10px solid #000;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+      }
+
+
+      .segment-x.segment-g {
+        width: 3.625rem;
+
+        border-bottom: 7px solid #000;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+
+        .segment-border {
+          top: 7px;
+          left: -7px;
+          right: -7px;
+          border-top: 7px solid #000;
+          border-left: 7px solid transparent;
+          border-right: 7px solid transparent;
+        }
+      }
+
+      .segment-y {
+        height: 3.25rem;
+        width: 0;
+        margin-top: -7px;
+        border-left: 11px solid #000;
+        border-top: 11px solid transparent;
+        border-bottom: 11px solid transparent;
+      }
+
+      .segment-b {
+        left: 44.3px;
+      }
+
+      .segment-c {
+        top: 58px;
+        left: 44.3px;
+      }
+
+      .segment-d {
+        top: 88px;
+      }
+
+      .segment-e {
+        top: 58px;
+      }
+
+      .segment-f {
+        top: 8px;
+        left: 0px;
+      }
+
+      .segment-g {
+        top: 42px;
+      }
+
+    }
+  }
+}
+
+/*
+  Cada classe no display-no[numero] funciona como um mapeamento dos números de led
+*/
+
+.display-no-1 {
+
+  .segment-a,
+  .segment-d,
+  .segment-e,
+  .segment-f,
+  .segment-g {
+    opacity: 0.1;
+    filter: alpha(opacity=10);
+  }
+}
+
+.display-no-2 {
+
+  .segment-c,
+  .segment-f {
+    opacity: 0.1;
+  }
+}
+
+.display-no-3 {
+
+  .segment-e,
+  .segment-f {
+    opacity: 0.1;
+  }
+}
+
+.display-no-4 {
+
+  .segment-a,
+  .segment-d,
+  .segment-e {
+    opacity: 0.1;
+  }
+}
+
+.display-no-5 {
+
+  .segment-b,
+  .segment-e {
+    opacity: 0.1;
+  }
+}
+
+.display-no-6 .segment-b {
+  opacity: 0.1;
+}
+
+.display-no-7 {
+
+  .segment-d,
+  .segment-e,
+  .segment-f,
+  .segment-g {
+    opacity: 0.1;
+  }
+}
+
+.display-no-9 .segment-e {
+  opacity: 0.1;
+}
+
+.display-no-0 .segment-g {
+  opacity: 0.1;
+}
