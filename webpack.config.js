@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: `assets/javascript/pages/[name].min.js`,
-    publicPath: '/',
+    publicPath: '/studiosolteste/',
     assetModuleFilename: 'images/[name].[ext].[query]',
   },
   plugins: [
@@ -20,6 +20,7 @@ module.exports = {
       template: path.join(__dirname, './src/assets/view/pages/home.pug'),
       filename: 'index.html',
       title: 'Studio Sol',
+      deploy: 'studiosolteste',
       chunks: ['home'],
     }),
 
